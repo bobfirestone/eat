@@ -34,6 +34,7 @@
   </p>
 <% end %>
 <p><em>Add Menu Item link</em></p>
+<%= @restaurant.menu %>
 <% @restaurant.menu_items.each do |m| %>
   <p>
   <b><%= m.name %></b>

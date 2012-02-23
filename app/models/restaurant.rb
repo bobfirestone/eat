@@ -8,6 +8,7 @@ class Restaurant
   field :phone, :type => String
   field :website, :type => String
   field :description, :type => String
+  field :menu
   key :url_slug
 
   validates_format_of :url_slug, with: /[A-Za-z]/
