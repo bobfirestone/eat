@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @restaurant.phone %>
+</p>
+
+<% if @restaurant.website.present? %>
+  <p>
+    <b>Website:</b>
+    <%= link_to @restaurant.website, @restaurant.website %>
+  </p>
+<% end %>
+<% if @restaurant.description.present? %>
+  <p>
+    <b>Description:</b>
+    <%= @restaurant.description %>
+  </p>
+<% end %>
+<% if @restaurant.user.present? %>
+  <p>
+    <b>Presented by:</b>
+    <%= @restaurant.user.email %>
+  </p>
+<% end %>
+<p><em>Add Menu Item link</em></p>
+<% @restaurant.menu_items.each do |m| %>
+  <p>
+  <b><%= m.name %></b>
+  <%= number_to_currency(m.price) %> <em>(edit link)</em><br>
+  <%= m.description %>
+  </p>
+<% end %>
+
+<br>
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
