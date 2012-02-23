@@ -33,11 +33,11 @@
     <%= @restaurant.user.email %>
   </p>
 <% end %>
-<p><em>Add Menu Item link</em></p>
-<h2>Menu</h2>
-<%= raw RedCloth.new(@restaurant.menu).to_html %>
 
-<% @restaurant.menu_items.each do |m| %>
+<h2>Menu</h2>
+<p><em>Add Menu Item link</em></p>
+
+<% @restaurant.menu_items.on_menu.each do |m| %>
   <p>
   <b><%= m.name %></b>
   <%= number_to_currency(m.price) %> <em>(edit link)</em><br>

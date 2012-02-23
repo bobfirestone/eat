@@ -3,6 +3,10 @@ class MenuItem
   field :name, :type => String
   field :price, :type => Float
   field :description, :type => String
-  field :priority, :type => Integer
+  field :position, :type => Integer
+  field :available, :type => Boolean
   embedded_in :restaurant
+
+  scope :on_menu, where(available: true)
+  default_scope order_by(:position => :asc)
 end
