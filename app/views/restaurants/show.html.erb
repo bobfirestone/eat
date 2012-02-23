@@ -34,7 +34,9 @@
   </p>
 <% end %>
 <p><em>Add Menu Item link</em></p>
-<%= @restaurant.menu %>
+<h2>Menu</h2>
+<%= raw RedCloth.new(@restaurant.menu).to_html %>
+
 <% @restaurant.menu_items.each do |m| %>
   <p>
   <b><%= m.name %></b>

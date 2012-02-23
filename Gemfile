@@ -7,7 +7,7 @@ gem 'mongoid_slug'
 gem 'bson_ext'
 
 gem 'devise'
-
+gem 'RedCloth'
 
 # Gems used only for assets and not required
 # in production environments by default.
