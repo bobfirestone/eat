@@ -8,7 +8,14 @@ class Restaurant
   field :phone, :type => String
   field :website, :type => String
   field :description, :type => String
-  field :menu
+  field :sunday, :type => String
+  field :monday, :type => String
+  field :tuesday, :type => String
+  field :wednesday, :type => String
+  field :thursday, :type => String
+  field :friday, :type => String
+  field :saturday, :type => String
+
   key :url_slug
 
   validates_format_of :url_slug, with: /[A-Za-z]/
@@ -17,5 +24,6 @@ class Restaurant
 
   belongs_to :user
   embeds_many :menu_items
+  embeds_many :specials
 
 end

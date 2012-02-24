@@ -35,10 +35,36 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <h3>Hours</h3>
   <div class="field">
-    <%= f.label :menu %><br />
-    <%= f.text_area :menu %>
+    <%= f.label :sunday %><br />
+    <%= f.text_field :sunday %>
   </div>
+  <div class="field">
+    <%= f.label :monday %><br />
+    <%= f.text_field :monday %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday %><br />
+    <%= f.text_field :tuesday %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday %><br />
+    <%= f.text_field :wednesday %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday %><br />
+    <%= f.text_field :thursday %>
+  </div>
+  <div class="field">
+    <%= f.label :friday %><br />
+    <%= f.text_field :friday %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday %><br />
+    <%= f.text_field :saturday %>
+  </div>
+  
    <div class="actions">
     <%= f.submit %>
   </div>

@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 
 gem 'mongoid'
-gem 'mongoid_slug'
+# gem 'mongoid_slug'
 gem 'bson_ext'
 
 gem 'devise'
 gem 'RedCloth'
-
+gem 'stamp'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

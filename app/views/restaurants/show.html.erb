@@ -1,50 +1,97 @@
+<div class="content">
+  
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<h1>
   <%= @restaurant.name %>
-</p>
+</h1>
+<div class="row">
+  <div class="span4">
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+    <%= link_to 'Back', restaurants_path %>
+    <% if @restaurant.description.present? %>
+      <h3>About <%= @restaurant.name %></h3>
+      <p>
+        <%= @restaurant.description %>
+      </p>
+    <% end %>
+    <p>
+      <b>Phone:</b>
+      <phone><%= @restaurant.phone %></phone>
+    </p>
+    <% if @restaurant.website.present? %>
+      <p>
+        <b>Website:</b>
+        <%= link_to @restaurant.website, @restaurant.website %>
+      </p>
+    <% end %>
+    <h3>Hours</h3>
+    <ul class="unstyled">
+      <li>Sunday: <%= @restaurant.sunday %></li>
+      <li>Monday: <%= @restaurant.monday %></li>
+      <li>Tuesday: <%= @restaurant.tuesday %></li>
+      <li>Wednesday: <%= @restaurant.wednesday %></li>
+      <li>Thursday: <%= @restaurant.thursday %></li>
+      <li>Friday: <%= @restaurant.friday %></li>
+      <li>Saturday: <%= @restaurant.saturday %></li>
+    </ul>
+    <% if @restaurant.user.present? %>
+      <p>
+        <b>User:</b>
+        <%= @restaurant.user.email %>
+      </p>
+    <% end %>
+    <h3>Location</h3>
+    <p>
+      <address><%= @restaurant.address %></address>
+    </p>
 
-<p>
-  <b>Address:</b>
-  <%= @restaurant.address %>
-</p>
+    <%= image_tag("http://placehold.it/300x250") %>
+  </div>
+  <div class="span8">
+    <% if @restaurant.specials.special_active.ended.present? %>
+      <div class="alert alert-block alert-success">
+        <a class="close" data-dismiss="alert">×</a>
+        <h3 class="alert-heading">Specials!</h3>
+        <ul class="unstyled">
+        <% @restaurant.specials.special_active.ended.each do |s| %>
+          <li><b><%= s.name %></b> <%= s.description %>
+          </li>
+        <% end -%>
+        </ul>
+      </div>
+      
+    <% end %>
 
-<p>
-  <b>Phone:</b>
-  <%= @restaurant.phone %>
-</p>
-
-<% if @restaurant.website.present? %>
-  <p>
-    <b>Website:</b>
-    <%= link_to @restaurant.website, @restaurant.website %>
-  </p>
-<% end %>
-<% if @restaurant.description.present? %>
-  <p>
-    <b>Description:</b>
-    <%= @restaurant.description %>
-  </p>
-<% end %>
-<% if @restaurant.user.present? %>
-  <p>
-    <b>Presented by:</b>
-    <%= @restaurant.user.email %>
-  </p>
-<% end %>
-
-<h2>Menu</h2>
-<p><em>Add Menu Item link</em></p>
-
-<% @restaurant.menu_items.on_menu.each do |m| %>
-  <p>
-  <b><%= m.name %></b>
-  <%= number_to_currency(m.price) %> <em>(edit link)</em><br>
-  <%= m.description %>
-  </p>
-<% end %>
-
-<br>
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+    <h1>Menu</h1>
+    <p><em>Add Menu Item link</em></p>
+    <i class="icon-inbox"></i>
+    <% @restaurant.menu_items.on_menu.each do |m| %>
+      <div class="row">
+        <% if m.heading? %>
+          <h2><%= m.name %></h2>
+        <% elsif m.image.present? %>
+          <div class="span6">  
+            <h3><%= m.name %></h3>
+            <p>
+              <%= number_to_currency(m.price) %> <em>(edit link)</em><br>
+              <%= m.description %>
+            </p>
+          </div>
+          <div class="span2">
+            <%= image_tag(m.image) %> 
+          </div>
+        <% else %>
+          <div class="span8">
+            <h3><%= m.name %></h3>
+            <p>
+              <b><%= number_to_currency(m.price) %></b> <em>(edit link)</em><br>
+              <%= m.description %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div> 

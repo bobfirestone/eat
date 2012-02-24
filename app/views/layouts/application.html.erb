@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Eat</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <%= render "layouts/head" %>
+  <body>
 
-<%= yield %>
-
-<br>
-<% if user_signed_in? %>
-  You are signed in as <%= current_user.username %>! <%= link_to "Sign Out", destroy_user_session_path, :method => :delete  %> or <%= link_to "Edit Profile", edit_user_registration_path %>
-<% else %>
-  You should <%= link_to "Sign In",  new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
-
-</body>
+    <%= render "layouts/navbar" %>
+    <div class="container">    
+      <%= yield %>
+      <%= render "layouts/footer" %>
+    </div> <!-- /container -->
+  </body>
+  <%= render "layouts/js_bottom" %>
 </html>
