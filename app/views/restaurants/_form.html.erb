@@ -35,6 +35,34 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <div class="field">
+    <%= f.label :delivery %><br />
+    <%= f.text_area :delivery %>
+  </div>
+  <h3>Payment Methods</h3>
+  <div class="field">
+    <%= f.select :cash, options_for_select([["Cash - Yes", true], ["Cash - No", false]], @restaurant.cash) %>
+  </div>
+  <div class="field">
+    <%= f.select :visa, options_for_select([["Visa - Yes", true], ["Visa - No", false]], @restaurant.visa) %>
+  </div>
+  <div class="field">
+    <%= f.select :master, options_for_select([["Master Card - Yes", true], ["Master Card - No", false]], @restaurant.master ) %>
+  </div>
+  <div class="field">
+    <%= f.select :amex, options_for_select([["American Express - Yes", true], ["American Express - No", false]], @restaurant.amex ) %>
+  </div>
+  <div class="field">
+    <%= f.select :discover, options_for_select([["Discover - Yes", true], ["Discover - No", false]], @restaurant.discover ) %>
+  </div>
+  <div class="field">
+    <%= f.select :diners_club, options_for_select([["Diners Club - Yes", true], ["Diners Club - No", false]], @restaurant.diners_club ) %>
+  </div>
+  <div class="field">
+    <%= f.select :jcb, options_for_select([["JCB - Yes", true], ["JCB - No", false]], @restaurant.jcb) %>
+  </div>
+  
+
   <h3>Hours</h3>
   <div class="field">
     <%= f.label :sunday %><br />

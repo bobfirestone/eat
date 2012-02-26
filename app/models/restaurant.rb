@@ -2,19 +2,28 @@ class Restaurant
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :name, :type => String
-  field :url_slug, :type => String
-  field :address, :type => String
-  field :phone, :type => String
-  field :website, :type => String
-  field :description, :type => String
-  field :sunday, :type => String
-  field :monday, :type => String
-  field :tuesday, :type => String
-  field :wednesday, :type => String
-  field :thursday, :type => String
-  field :friday, :type => String
-  field :saturday, :type => String
+  field :name
+  field :url_slug
+  field :address
+  field :phone
+  field :website
+  field :description
+  field :sunday
+  field :monday
+  field :tuesday
+  field :wednesday
+  field :thursday
+  field :friday
+  field :saturday
+  field :parking
+  field :cash, type: Boolean, default: false
+  field :visa, type: Boolean, default: false
+  field :master, type: Boolean, default: false
+  field :amex, type: Boolean, default: false
+  field :discover, type: Boolean, default: false
+  field :jcb, type: Boolean, default: false
+  field :diners_club, type: Boolean, default: false
+  field :delivery
 
   key :url_slug
 

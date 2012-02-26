@@ -25,6 +25,35 @@
         <%= link_to @restaurant.website, @restaurant.website %>
       </p>
     <% end %>
+    <% if @restaurant.user.present? %>
+      <p>
+        <b>User:</b>
+        <%= @restaurant.user.email %>
+      </p>
+    <% end %>
+    <h3>We Take</h3>
+    <% if @restaurant.cash? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/cash_32.png" %>
+    <% end %>
+    <% if @restaurant.visa? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/visa_32.png" %>
+    <% end %>
+    <% if @restaurant.master? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/mastercard_32.png" %>
+    <% end %>
+    <% if @restaurant.amex? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/american_express_green_32.png" %>
+    <% end %>
+    <% if @restaurant.discover? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/discover_32.png" %>
+    <% end %>
+    <% if @restaurant.jcb? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/jcb_32.png" %>
+    <% end %>
+    <% if @restaurant.diners_club? %>
+      <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/diners_club_32.png" %>
+      <% end %>
+
     <h3>Hours</h3>
     <ul class="unstyled">
       <li>Sunday: <%= @restaurant.sunday %></li>
@@ -35,16 +64,19 @@
       <li>Friday: <%= @restaurant.friday %></li>
       <li>Saturday: <%= @restaurant.saturday %></li>
     </ul>
-    <% if @restaurant.user.present? %>
-      <p>
-        <b>User:</b>
-        <%= @restaurant.user.email %>
-      </p>
+    <% if @restaurant.delivery.present? %>
+      <h3>Delivery Information</h3>
+      <p><%= @restaurant.delivery %></p>
     <% end %>
+
     <h3>Location</h3>
     <p>
       <address><%= @restaurant.address %></address>
     </p>
+    <p>
+      <b>Parking:</b> <%= @restaurant.parking %>
+    </p>
+    
 
     <%= image_tag("http://placehold.it/300x250") %>
   </div>
@@ -65,7 +97,6 @@
 
     <h1>Menu</h1>
     <p><em>Add Menu Item link</em></p>
-    <i class="icon-inbox"></i>
     <% @restaurant.menu_items.on_menu.each do |m| %>
       <div class="row">
         <% if m.heading? %>

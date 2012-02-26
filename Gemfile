@@ -7,8 +7,9 @@ gem 'mongoid'
 gem 'bson_ext'
 
 gem 'devise'
-gem 'RedCloth'
+
 gem 'stamp'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
