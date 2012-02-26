@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.2.9)
     actionmailer (3.2.1)
       actionpack (= 3.2.1)
       mail (~> 2.4.0)
@@ -52,8 +51,6 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
-    formtastic (2.0.2)
-      rails (~> 3.0)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.2)
@@ -148,11 +145,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
   bson_ext
   coffee-rails (~> 3.2.1)
   devise
-  formtastic
   jquery-rails
   letter_opener
   mongoid
