@@ -1,4 +1,4 @@
-<div class="content">
+<div class="container">
   
 <p id="notice"><%= notice %></p>
 
@@ -7,8 +7,10 @@
 </h1>
 <div class="row">
   <div class="span4">
-    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-    <%= link_to 'Back', restaurants_path %>
+    <% if can? :update, @restaurant %>
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+    <% end %>
+
     <% if @restaurant.description.present? %>
       <h3>About <%= @restaurant.name %></h3>
       <p>
@@ -23,12 +25,6 @@
       <p>
         <b>Website:</b>
         <%= link_to @restaurant.website, @restaurant.website %>
-      </p>
-    <% end %>
-    <% if @restaurant.user.present? %>
-      <p>
-        <b>User:</b>
-        <%= @restaurant.user.email %>
       </p>
     <% end %>
     <h3>We Take</h3>
@@ -73,12 +69,16 @@
     <p>
       <address><%= @restaurant.address %></address>
     </p>
-    <p>
-      <b>Parking:</b> <%= @restaurant.parking %>
-    </p>
+
+    <% if @restaurant.parking.present? %>
+      <p>
+        <b>Parking:</b> <%= @restaurant.parking %>
+      </p>
+    <% end %>
     
 
     <%= image_tag("http://placehold.it/300x250") %>
+    <caption>A Map Goes Here</caption>
   </div>
   <div class="span8">
     <% if @restaurant.specials.special_active.ended.present? %>

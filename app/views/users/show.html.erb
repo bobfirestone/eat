@@ -1,0 +1,12 @@
+<div class="row">
+<h1>User Profile Page</h1>
+	<div class="well span8">
+	<h3>My Restaurants</h3>
+	<% @user.restaurants.each do |restaurant| %>
+		<p><b><%= link_to restaurant.name, restaurant_path(restaurant) %></b> 
+			<% if can? :edit, restaurant %> 
+				<em><%= link_to "(Edit)", edit_restaurant_path(restaurant) %></em></p>
+			<% end %>
+	<% end %>
+	</div>
+</div>

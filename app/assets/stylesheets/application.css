@@ -12,6 +12,7 @@
  *= require "museo_300_macroman/stylesheet"
  *= require "museo_500_macroman/stylesheet"
  *= require "museo_700_macroman/stylesheet"
+ *= require "otari_bold-limited_macroman/stylesheet"
  *= require "bootstrap"
  *= require "responsive"
 */

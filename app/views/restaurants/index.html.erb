@@ -1,25 +1,27 @@
-<h1>Listing restaurants</h1>
+<div class="container">
+  <div class="span12">
+    <%- flash.each do |name, msg| -%>
+      <div class="alert">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      </div>
+    <%- end -%>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th></th>
-    <th></th>
-  </tr>
+    <h1>Listing restaurants</h1>
 
-<% @restaurants.each do |restaurant| %>
-  <tr>
-    <td><%= link_to restaurant.name, restaurant %></td>
-    <td><%= restaurant.address %></td>
-    <td><%= restaurant.phone %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Restaurant', new_restaurant_path %>
+    <div class="row">
+      <div class="span9">
+        <%= image_tag("http://placehold.it/700x535") %>
+      </div>
+      <div class="span3">
+      <% @restaurants.each do |restaurant| %>
+        <h4><%= link_to restaurant.name, restaurant %></h4>
+        <p>
+          <%= restaurant.address %><br>
+          <%= restaurant.phone %>
+        </p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  load_and_authorize_resource
   # GET /restaurants
   # GET /restaurants.json
   def index

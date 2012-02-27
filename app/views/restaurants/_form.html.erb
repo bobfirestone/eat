@@ -1,3 +1,4 @@
+<div class="row">
 <%= form_for(@restaurant) do |f| %>
   <% if @restaurant.errors.any? %>
     <div id="error_explanation">
@@ -10,90 +11,202 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    
+      <div class="span4">
+        <h3>General Info</h3>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :name %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :name, :class => "span3" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :url_slug, "Slug" %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :url_slug, :class => "span3" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :address %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :address, :class => "span3" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :phone %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :phone, :class => "span3" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :website %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :website, :class => "span3" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :description %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :description, :class => "span3" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1">
+            <%= f.label :delivery %>
+          </div>
+          <div class="span3">
+            <%= f.text_field :delivery, :class => "span3" %>
+          </div>
+        </div>
+        
+      </div>
+      <div class="span4">
+        <h3>Payment Accepted</h3>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/cash_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :cash, options_for_select([["Cash - Yes", true], ["Cash - No", false]], @restaurant.cash), {}, { :class => "span3" } %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/visa_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :visa, options_for_select([["Visa - Yes", true], ["Visa - No", false]], @restaurant.visa), {}, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/mastercard_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :master, options_for_select([["Master Card - Yes", true], ["Master Card - No", false]], @restaurant.master ), {}, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/american_express_green_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :amex, options_for_select([["American Express - Yes", true], ["American Express - No", false]], @restaurant.amex ), {}, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/discover_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :discover, options_for_select([["Discover - Yes", true], ["Discover - No", false]], @restaurant.discover ), {}, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/diners_club_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :diners_club, options_for_select([["Diners Club - Yes", true], ["Diners Club - No", false]], @restaurant.diners_club ), {}, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= image_tag "https://s3.amazonaws.com/besteatsin/icons/jcb_32.png" %>
+            </div>
+            <div class="span3">
+              <%= f.select :jcb, options_for_select([["JCB - Yes", true], ["JCB - No", false]], @restaurant.jcb), {}, :class => "span3" %>
+            </div>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :url_slug %><br />
-    <%= f.text_field :url_slug %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery %><br />
-    <%= f.text_area :delivery %>
-  </div>
-  <h3>Payment Methods</h3>
-  <div class="field">
-    <%= f.select :cash, options_for_select([["Cash - Yes", true], ["Cash - No", false]], @restaurant.cash) %>
-  </div>
-  <div class="field">
-    <%= f.select :visa, options_for_select([["Visa - Yes", true], ["Visa - No", false]], @restaurant.visa) %>
-  </div>
-  <div class="field">
-    <%= f.select :master, options_for_select([["Master Card - Yes", true], ["Master Card - No", false]], @restaurant.master ) %>
-  </div>
-  <div class="field">
-    <%= f.select :amex, options_for_select([["American Express - Yes", true], ["American Express - No", false]], @restaurant.amex ) %>
-  </div>
-  <div class="field">
-    <%= f.select :discover, options_for_select([["Discover - Yes", true], ["Discover - No", false]], @restaurant.discover ) %>
-  </div>
-  <div class="field">
-    <%= f.select :diners_club, options_for_select([["Diners Club - Yes", true], ["Diners Club - No", false]], @restaurant.diners_club ) %>
-  </div>
-  <div class="field">
-    <%= f.select :jcb, options_for_select([["JCB - Yes", true], ["JCB - No", false]], @restaurant.jcb) %>
-  </div>
-  
+      <div class="span4">
+        <h3>Hours</h3>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :sunday, "Sun" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :sunday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :monday, "Mon" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :monday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :tuesday, "Tue" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :tuesday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :wednesday, "Wed" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :wednesday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :thursday, "Thu" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :thursday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :friday, "Fri" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :friday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :saturday, "Sat" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :saturday, :class => "span3" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span3 offset1">
+              <!-- <div class="actions"> -->
+                <%= f.submit %>
+              <!-- </div> -->
+            </div>
+          </div>
 
-  <h3>Hours</h3>
-  <div class="field">
-    <%= f.label :sunday %><br />
-    <%= f.text_field :sunday %>
-  </div>
-  <div class="field">
-    <%= f.label :monday %><br />
-    <%= f.text_field :monday %>
-  </div>
-  <div class="field">
-    <%= f.label :tuesday %><br />
-    <%= f.text_field :tuesday %>
-  </div>
-  <div class="field">
-    <%= f.label :wednesday %><br />
-    <%= f.text_field :wednesday %>
-  </div>
-  <div class="field">
-    <%= f.label :thursday %><br />
-    <%= f.text_field :thursday %>
-  </div>
-  <div class="field">
-    <%= f.label :friday %><br />
-    <%= f.text_field :friday %>
-  </div>
-  <div class="field">
-    <%= f.label :saturday %><br />
-    <%= f.text_field :saturday %>
-  </div>
-  
-   <div class="actions">
-    <%= f.submit %>
-  </div>
+        </div>
+      </div>
+
+      </div>
+    
+  </div> 
+    
+</div>
+
 <% end %>
+</div>

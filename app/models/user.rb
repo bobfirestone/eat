@@ -45,5 +45,7 @@ class User
   field :username
   field :firstname
   field :lastname
+  field :admin, :type => Boolean, :default => false
+  field :subscription, :type => Boolean, :default => false
 
 end
