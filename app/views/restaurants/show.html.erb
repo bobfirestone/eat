@@ -52,13 +52,13 @@
 
     <h3>Hours</h3>
     <ul class="unstyled">
-      <li>Sunday: <%= @restaurant.sunday %></li>
-      <li>Monday: <%= @restaurant.monday %></li>
-      <li>Tuesday: <%= @restaurant.tuesday %></li>
-      <li>Wednesday: <%= @restaurant.wednesday %></li>
-      <li>Thursday: <%= @restaurant.thursday %></li>
-      <li>Friday: <%= @restaurant.friday %></li>
-      <li>Saturday: <%= @restaurant.saturday %></li>
+      <li class="mono">Sun: <%= @restaurant.sunday %></li>
+      <li class="mono">Mon: <%= @restaurant.monday %></li>
+      <li class="mono">Tue: <%= @restaurant.tuesday %></li>
+      <li class="mono">Wed: <%= @restaurant.wednesday %></li>
+      <li class="mono">Thu: <%= @restaurant.thursday %></li>
+      <li class="mono">Fri: <%= @restaurant.friday %></li>
+      <li class="mono">Sat: <%= @restaurant.saturday %></li>
     </ul>
     <% if @restaurant.delivery.present? %>
       <h3>Delivery Information</h3>
@@ -105,7 +105,11 @@
           <div class="span6">  
             <h3><%= m.name %></h3>
             <p>
-              <%= number_to_currency(m.price) %> <em>(edit link)</em><br>
+              <em>(edit link)</em><br>
+              <% if m.price.present? %>
+                <b><%= m.price %></b>
+              <% end %>
+            <br>
               <%= m.description %>
             </p>
           </div>
@@ -116,7 +120,11 @@
           <div class="span8">
             <h3><%= m.name %></h3>
             <p>
-              <b><%= number_to_currency(m.price) %></b> <em>(edit link)</em><br>
+              <em>(edit link)</em><br>
+              <% if m.price.present? %>
+                <b><%= m.price %></b>
+              <% end %>
+            <br>
               <%= m.description %>
             </p>
           </div>

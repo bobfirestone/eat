@@ -3,7 +3,7 @@ class MenuItem
   include Mongoid::Timestamps
 
   field :name, :type => String
-  field :price, :type => Float
+  field :price, :type => String
   field :description, :type => String
   field :position, :type => Integer
   field :available, :type => Boolean

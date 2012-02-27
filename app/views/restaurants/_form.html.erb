@@ -24,12 +24,22 @@
           </div>
         </div>
         <div class="row">
+          <% if @restaurant.url_slug.nil? %>
+            <div class="span1">
+              <%= f.label :url_slug, "Slug" %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :url_slug, :class => "span3" %>
+            </div>
+          <% else %>
           <div class="span1">
-            <%= f.label :url_slug, "Slug" %>
-          </div>
-          <div class="span3">
-            <%= f.text_field :url_slug, :class => "span3" %>
-          </div>
+              <p>Your url</p>
+            </div>
+            <div class="span3">
+              <%= link_to "http://pep.io/r/#{@restaurant.url_slug}", "http://pep.io/r/#{@restaurant.url_slug}" %>
+            </div>
+            
+          <% end %>
         </div>
         <div class="row">
           <div class="span1">
@@ -60,17 +70,18 @@
             <%= f.label :description %>
           </div>
           <div class="span3">
-            <%= f.text_field :description, :class => "span3" %>
+            <%= f.text_area :description, :class => "span3", :rows => 4 %>
           </div>
         </div>
         <div class="row">
           <div class="span1">
-            <%= f.label :delivery %>
+            <%= f.label :parking %>
           </div>
           <div class="span3">
-            <%= f.text_field :delivery, :class => "span3" %>
+            <%= f.text_field :parking, :class => "span3" %>
           </div>
         </div>
+
         
       </div>
       <div class="span4">
@@ -191,6 +202,15 @@
               <%= f.text_field :saturday, :class => "span3" %>
             </div>
           </div>
+          <div class="row">
+            <div class="span1">
+              <%= f.label :delivery %>
+            </div>
+            <div class="span3">
+              <%= f.text_field :delivery, :class => "span3" %>
+            </div>
+          </div>
+
           <div class="row">
             <div class="span3 offset1">
               <!-- <div class="actions"> -->
